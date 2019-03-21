@@ -1,17 +1,32 @@
 package ru.avalon.java.dev.j10.labs;
 
+import ru.avalon.java.dev.j10.labs.commons.Address;
+import ru.avalon.java.dev.j10.labs.models.Passport;
 import ru.avalon.java.dev.j10.labs.models.Person;
 
 public class Main {
 
-    Main() {
+     public static void main (String [] args) {
 
         /*
          * FIXME(Студент): Измените определение метода так, чтобы он стал точкой входа в приложение.
          */
 
-        Person ivanov = null;
-        Person smith = null;
+        Person ivanov = new Person ("Иван"); // создаем ссылки на обьекты иванова и смита 
+        Person smith = new Person("John");
+        
+        Passport ivanovPassportName = new Passport ("Иванов", "Иван", "Иванвич"); //пмещаем в ссылки класса паспорт данные об именах смита и иванова,
+        Passport smithPassportName = new Passport ("Smith", "John", null, "Edvard");
+        
+        ivanov.setPassport(ivanovPassportName);//передаем паспортные имена в ссылки иванова и смита
+        smith.setPassport(smithPassportName);
+        
+        Address addressForIvanov = new Address("RUSSIA", "Saint Petersburg", "Kima", "59", "123", "190000"); // помещяем в сыылки данные об адресах
+        Address addressForSmith = new Address("USA", "NY", "Big avenue", "12", "34", "567890");
+        
+        ivanov.setAddress(addressForIvanov);//передаем адреса в сылки иванова и смита 
+        smith.setAddress(addressForSmith);
+          
 
         /*
          * TODO(Студент): Создайте экземпляры класса 'Person'
@@ -44,6 +59,7 @@ public class Main {
          *    человека, описанного объектом, адресованным
          *    переменной 'smith'.
          */
+        
 
         /*
          * TODO(Студент): Выведите в консоль значения созданных строковых переменных:
@@ -51,5 +67,8 @@ public class Main {
          * Значение каждой переменной должно быть выведено на
          * отдельной строке.
          */
+        System.out.println(ivanov.getFullName() + "\n"  + smith.getFullName() +
+                "\n" + ivanov.getAddress() + "\n" + smith.getAddress());
+        
     }
 }
